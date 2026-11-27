@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery — Our Blooms</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,700..900,100&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="gallery.css">
+</head>
+<body>
+
+  <header class="header container">
+    <a href="index.html" class="logo">Our Blooms<sup>®</sup></a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="gallery.html" class="active">Gallery</a>
+    </nav>
+    <a href="#contact" class="btn btn-dark">Order now</a>
+  </header>
+
+  <main>
+    <section class="intro container">
+      <h1 class="title">Gallery<sup>®</sup></h1>
+      <div class="intro-row">
+        <p class="intro-text">A little look at the bouquets we made for birthdays, weddings and simple happy days.</p>
+        <div class="filters">
+          <button class="filter active" data-filter="all">All</button>
+          <button class="filter" data-filter="bouquets">Bouquets</button>
+          <button class="filter" data-filter="wedding">Wedding</button>
+          <button class="filter" data-filter="seasonal">Seasonal</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery container">
+      <figure class="item tall" data-cat="bouquets">
+        <img src="img/g1.jpg" alt="Pink peony bouquet">
+        <figcaption>Pink Peony</figcaption>
+      </figure>
+      <figure class="item" data-cat="wedding">
+        <img src="img/g2.jpg" alt="Lilac flowers">
+        <figcaption>Lilac Dream</figcaption>
+      </figure>
+      <figure class="item" data-cat="seasonal">
+        <img src="img/g3.jpg" alt="Green leaves">
+        <figcaption>Spring Green</figcaption>
+      </figure>
+      <figure class="item wide" data-cat="bouquets">
+        <img src="img/g4.jpg" alt="Peach bouquet">
+        <figcaption>Peach Morning</figcaption>
+      </figure>
+      <figure class="item" data-cat="wedding">
+        <img src="img/g5.jpg" alt="Violet petals">
+        <figcaption>Violet Touch</figcaption>
+      </figure>
+      <figure class="item tall" data-cat="seasonal">
+        <img src="img/g6.jpg" alt="Single peony">
+        <figcaption>Summer Peony</figcaption>
+      </figure>
+      <figure class="item" data-cat="bouquets">
+        <img src="img/g7.jpg" alt="Coral petals">
+        <figcaption>Coral Petals</figcaption>
+      </figure>
+      <figure class="item wide" data-cat="wedding">
+        <img src="img/g8.jpg" alt="Purple flower">
+        <figcaption>Wedding Bloom</figcaption>
+      </figure>
+    </section>
+
+    <section class="cta container">
+      <div class="cta-box">
+        <div class="badge">
+          <span>New</span>
+          <strong>10% Off</strong>
+          <span>First order</span>
+        </div>
+        <h2>Liked something? We will make it for you.</h2>
+        <a href="#contact" class="btn btn-dark">Order a bouquet</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contact">
+    <div class="container footer-inner">
+      <p class="footer-logo">Our Blooms<sup>®</sup></p>
+      <div class="footer-info">
+        <p>hello@ourblooms.com</p>
+        <p>+1 (555) 123-45-67</p>
+        <p>Every day 9:00 – 21:00</p>
+      </div>
+      <p class="copy">© 2026 Sweet Flower Shop</p>
+    </div>
+  </footer>
+
+  <script>
+    const buttons = document.querySelectorAll('.filter');
+    const items = document.querySelectorAll('.item');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const cat = btn.dataset.filter;
+        items.forEach(item => {
+          item.style.display = (cat === 'all' || item.dataset.cat === cat) ? '' : 'none';
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
